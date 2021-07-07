@@ -1,0 +1,56 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    background: linear-gradient(to top left, #28b487, #7dd56f);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+label {
+    font-size: 30px;
+    font-weight: 600;
+    color: black;
+}
+
+button {
+    padding: 12px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+}
+
+button:focus {
+    outline: none;
+}
+
+
+.main {
+    padding: 3rem 2rem;
+    margin-top: 2rem;
+}
+
+#cityInput {
+    height: 40px;
+    border-radius: 20px;
+    border: none;
+}
+
+
+input {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+
+input:focus,
+textarea:focus,
+text:focus {
+    outline: none;
+}
