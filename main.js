@@ -6,7 +6,7 @@ const app = express();
 app.use(express.json());//middleware for json
 app.use(express.urlencoded({ urlencoded: true })); // middleware for form
 
-app.use(express.static('public'))
+app.use(express.static('public'))//middleware for the static files like css and images
 
 app.get('/', (req, res) => {
 
