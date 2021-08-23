@@ -1,26 +1,16 @@
-const express = require('express');
-const https = require('https');
-const superagent = require('superagent');
+const app = require("./app");
+const https = require("https");
+const superagent = require("superagent");
 
-const app = express();
-
-//middleware for json
-app.use(express.json());
-// middleware for form
-app.use(express.urlencoded({ urlencoded: true }));
-
-//middleware for the static files like css and images
-app.use(express.static('./public'));
-
-app.get('/', (req, res) => {
+app.get("/", (req, res) => {
     res.sendFile(`${__dirname}/index.html`);
 })
 
-app.post('/weather', (req, res) => {
+app.post("/weather", (req, res) => {
 
     const query = req.body.CityName;
-    const apiKey = 'c2cd39719ecad05f1ba2091eb93c8bc1';
-    const units = 'metric';
+    const apiKey = "c2cd39719ecad05f1ba2091eb93c8bc1";
+    const units = "metric";
 
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${query}&appid=${apiKey}&units=${units}`;
 
@@ -51,11 +41,13 @@ app.post('/weather', (req, res) => {
     })
 })
 
-app.get('/data', (req, res) => {
 
-    const cityName = 'India';
-    const apiKey = 'c2cd39719ecad05f1ba2091eb93c8bc1';
-    const units = 'metric';
+// Working with superagent
+app.get("/data", (req, res) => {
+
+    const cityName = "India";
+    const apiKey = "c2cd39719ecad05f1ba2091eb93c8bc1";
+    const units = "metric";
 
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=${units}`;
 
@@ -68,11 +60,9 @@ app.get('/data', (req, res) => {
             res.send(response.body);
 
         })
-
 })
 
-// listening on the port 5000
-app.listen(5000, () => console.log('Server Started on the port 5000'));
+
 
 
 
